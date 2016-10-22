@@ -76,9 +76,9 @@ angular.module('nibs_ibeacon.profile', ['nibs_ibeacon.s3uploader', 'nibs_ibeacon
     .factory('Type', function() {
 
         var types = [
-            { text: 'Oats', value: 'Small' },
-            { text: 'Barley', value: 'Medium' },
-            { text: 'Fruit-Mix', value: 'Large' },
+            { text: 'Oats', value: 'Oats' },
+            { text: 'Barley', value: 'Barley' },
+            { text: 'Fruit-Mix', value: 'Fruit-Mix' },
             { text: 'Weetabix', value: 'Weetabix' }
         ];
 
