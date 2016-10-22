@@ -40,8 +40,8 @@ function updateProfile(req, res, next) {
 
     console.log('updating: ' + JSON.stringify(user));
 
-    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, preference__c=$5, size__c=$6 WHERE id=$7',
-            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.preference, user.size, userId])
+    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7 WHERE id=$8',
+            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.protein, user.frequency, user.type, userId])
         .then(function () {
             res.send(user);
         })
