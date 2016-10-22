@@ -15,7 +15,7 @@ function getProfile(req, res, next) {
     activities.getPointBalance(externalUserId)
         .then(function (activity) {
             db.query(
-                    'SELECT id, firstName, lastName, email, mobilePhone, pictureURL__c as pictureURL, createddate, preference__c AS preference, size__c AS size FROM salesforce.contact WHERE id=$1',
+                    'SELECT id, firstName, lastName, email, mobilePhone, pictureURL__c as pictureURL, createddate, preference__c AS preference, size__c AS size, protein__c AS protein, frequency__c AS frequency, type__c AS type FROM salesforce.contact WHERE id=$1',
                     [userId], true)
                 .then(function (user) {
                     user.points = activity.points;
