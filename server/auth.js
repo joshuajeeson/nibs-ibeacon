@@ -50,7 +50,7 @@ function createAccessToken(user) {
     winston.info('createAccessToken');
     var token = uuid.v4(),
         deferred = Q.defer();
-    
+
     db.query('INSERT INTO tokens (userId, externalUserId, token) VALUES ($1, $2, $3)', [user.id, user.externaluserid, token])
         .then(function() {
             deferred.resolve(token);
@@ -95,7 +95,7 @@ function login(req, res, next) {
                             return res.send({'user':{'email': user.email, 'firstName': user.firstname, 'lastName': user.lastname}, 'token': token});
                         })
                         .catch(function(err) {
-                            return next(err);    
+                            return next(err);
                         });
                 } else {
                     // Passwords don't match
@@ -181,7 +181,18 @@ function createUser(user, password) {
     db.query('INSERT INTO salesforce.contact (email, password__c, firstname, lastname, leadsource, loyaltyid__c, accountid) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, firstName, lastName, email, loyaltyid__c as externalUserId',
         [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
         .then(function (insertedUser) {
-            deferred.resolve(insertedUser);
+                //<------- Mo ------
+                //deferred.resolve(insertedUser);
+                //INSERT INTO sfconnect.account ( sfid, name, isdeleted, phone) VALUES ( '0010Y000002dAWXQA3'::character varying, 'Mo Zo'::character varying, false::boolean, '320'::character varying);
+                db.query('INSERT INTO sfconnect.contact (sfid, name, isdeleted, phone) VALUES ($1, $2, $3, $4) RETURNING "0010Y000002dAWXQA3", firstName + ' ' + lastName, false, "320"',
+                    [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
+                    .then(function (insertedUser) {
+                        deferred.resolve(insertedUser);
+                    })
+                    .catch(function(err) {
+                        deferred.reject(err);
+                    });
+                //>------- Mo ---------
         })
         .catch(function(err) {
             deferred.reject(err);
