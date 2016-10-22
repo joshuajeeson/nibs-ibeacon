@@ -182,17 +182,14 @@ function createUser(user, password) {
         [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
         .then(function (insertedUser) {
                 //<------- Mo ------
-                //deferred.resolve(insertedUser);
-
+                //INSERT INTO sfconnect.account ( name) VALUES ( 'Joshua1'::character varying);
                 db.query('INSERT INTO sfconnect.account (name                                 ) VALUES ($1) ',
                                                         [user.firstName + ' ' + user.lastName ], true)
-                    .then(function (insertedUser) {
-                        deferred.resolve(insertedUser);
-                    })
                     .catch(function(err) {
                         deferred.reject(err);
                     });
                 //>------- Mo ---------
+                deferred.resolve(insertedUser);
         })
         .catch(function(err) {
             deferred.reject(err);
