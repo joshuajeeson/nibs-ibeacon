@@ -133,8 +133,6 @@ angular.module('nibs_ibeacon.profile', ['nibs_ibeacon.s3uploader', 'nibs_ibeacon
 
         $scope.update = function () {
             console.log('Updating User...');
-            console.log(user);
-            console.log('---------------*');
             User.update($scope.user).success(function() {
                 Status.show('Your profile has been saved.');
             })
