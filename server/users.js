@@ -47,11 +47,9 @@ function updateProfile(req, res, next) {
           db.query('update sfconnect.account SET name=$1, phone=$2, protein__c=$3, frequency__c=$4, type__c=$5, subscribe__c=$6 WHERE id=$7',
                   [user.firstname + ' ' + user.lastname, user.mobilephone, user.protein, user.frequency, user.type, user.subscribe, 1])
               .then(function () {
-                  res.send(user);
               })
               .catch(next);
           //-------- Mo ----------
-
             res.send(user);
         })
         .catch(next);
