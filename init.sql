@@ -28,7 +28,10 @@ CREATE TABLE IF NOT EXISTS salesforce.contact (
     password__c     TEXT,
     fbUserId__c     TEXT,
     gender__c       TEXT,
-    createddate     timestamp
+    createddate     timestamp,
+    protein         TEXT,
+    frequency       TEXT,
+    type            TEXT
   );
 
 CREATE TABLE IF NOT EXISTS salesforce.interaction__c (
@@ -100,4 +103,3 @@ INSERT INTO salesforce.store__c (id, name, location__latitude__s, location__long
     (1, 'Marquis', 37.785143, -122.403405),
     (2, 'Hilton', 37.786164, -122.410137),
     (3, 'Hyatt', 37.794157, -122.396311);
-
