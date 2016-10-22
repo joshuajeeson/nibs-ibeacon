@@ -178,13 +178,13 @@ function createUser(user, password) {
     var deferred = Q.defer(),
         externalUserId = (+new Date()).toString(36); // TODO: more robust UID logic
 
-    db.query('INSERT INTO salesforce.contact (email, password__c, firstname, lastname, leadsource, loyaltyid__c, accountid) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id, firstName, lastName, email, loyaltyid__c as externalUserId',
-        [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
+    db.query('INSERT INTO salesforce.contact (email, password__c, firstname, lastname, mobilephone, leadsource, loyaltyid__c, accountid) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING id, firstName, lastName, email, loyaltyid__c as externalUserId',
+        [user.email, password, user.firstName, user.lastName, user.mobilephone, 'Loyalty App', externalUserId, config.contactsAccountId], true)
         .then(function (insertedUser) {
                 //<------- Mo ------
                 //INSERT INTO sfconnect.account ( name) VALUES ( 'Joshua1'::character varying);
-                db.query('INSERT INTO sfconnect.account (name                                , acc_id__c ) VALUES ($1, $2) ',
-                                                        [user.firstName + ' ' + user.lastName, insertedUser.id], true)
+                db.query('INSERT INTO sfconnect.account (name                                , phone,             acc_id__c         ) VALUES ($1, $2) ',
+                                                        [user.firstName + ' ' + user.lastName, user.mobilephone,  insertedUser.id   ], true)
                     .catch(function(err) {
                         deferred.reject(err);
                     });
