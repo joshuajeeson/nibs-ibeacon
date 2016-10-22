@@ -41,36 +41,55 @@ angular.module('nibs_ibeacon.profile', ['nibs_ibeacon.s3uploader', 'nibs_ibeacon
 
     })
 
-    .factory('Preference', function() {
+    //<------- Mo -------
 
-        var preferences = [
-            { text: 'Dark', value: 'Dark' },
-            { text: 'Milk', value: 'Milk' },
-            { text: 'White', value: 'White' }
-        ];
+    .factory('Protein', function() {
 
-        return {
-            all: function() {
-                return preferences;
-            }
-        }
-    })
-
-    .factory('Size', function() {
-
-        var sizes = [
-            { text: 'Small', value: 'Small' },
+        var proteins = [
+            { text: 'High', value: 'High' },
             { text: 'Medium', value: 'Medium' },
-            { text: 'Large', value: 'Large' },
-            { text: 'X-Large', value: 'X-Large' }
+            { text: 'Low', value: 'Low' }
         ];
 
         return {
             all: function() {
-                return sizes;
+                return proteins;
             }
         }
     })
+
+    .factory('Frequency', function() {
+
+        var frequencies = [
+            { text: 'Weekly', value: 'Weekly' },
+            { text: 'Bi-weekly', value: 'Bi-weekly' },
+            { text: 'Monthly', value: 'Monthly' }
+        ];
+
+        return {
+            all: function() {
+                return frequencies;
+            }
+        }
+    })
+
+    .factory('Type', function() {
+
+        var types = [
+            { text: 'Oats', value: 'Small' },
+            { text: 'Barley', value: 'Medium' },
+            { text: 'Fruit-Mix', value: 'Large' },
+            { text: 'Weetabix', value: 'Weetabix' }
+        ];
+
+        return {
+            all: function() {
+                return types;
+            }
+        }
+    })
+
+    //>------- Mo -------
 
     //Controllers
     .controller('ProfileCtrl', function ($rootScope, $scope, $state, User, STATUS_LABELS, STATUS_DESCRIPTIONS) {
@@ -101,13 +120,14 @@ angular.module('nibs_ibeacon.profile', ['nibs_ibeacon.s3uploader', 'nibs_ibeacon
 
     })
 
-    .controller('EditProfileCtrl', function ($scope, $window, $ionicPopup, S3Uploader, User, Preference, Size, Status) {
+    .controller('EditProfileCtrl', function ($scope, $window, $ionicPopup, S3Uploader, User, Protein, Frequency, Type, Status) {
 
         User.get().success(function(user) {
             $scope.user = user;
         });
-        $scope.preferences = Preference.all();
-        $scope.sizes = Size.all();
+        $scope.proteins     = Protein.all();
+        $scope.frequencies  = Frequency.all();
+        $scope.types        = Type.all();
 
         $scope.panel = 1;
 
