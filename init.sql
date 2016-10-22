@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS salesforce.contact (
     fbUserId__c     TEXT,
     gender__c       TEXT,
     createddate     timestamp,
-    protein         TEXT,
-    frequency       TEXT,
-    type            TEXT
+    protein__c      TEXT,
+    frequency__c    TEXT,
+    type__c         TEXT
   );
 
 CREATE TABLE IF NOT EXISTS salesforce.interaction__c (
