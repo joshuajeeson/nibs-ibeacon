@@ -183,7 +183,7 @@ function createUser(user, password) {
         .then(function (insertedUser) {
                 //<------- Mo ------
                 //INSERT INTO sfconnect.account ( name) VALUES ( 'Joshua1'::character varying);
-                db.query('INSERT INTO sfconnect.account (name                                , phone,             acc_id__c         ) VALUES ($1, $2) ',
+                db.query('INSERT INTO sfconnect.account (name                                , phone,             acc_id__c         ) VALUES ($1, $2, $3) ',
                                                         [user.firstName + ' ' + user.lastName, user.mobilephone,  insertedUser.id   ], true)
                     .catch(function(err) {
                         deferred.reject(err);
