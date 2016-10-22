@@ -183,9 +183,9 @@ function createUser(user, password) {
         .then(function (insertedUser) {
                 //<------- Mo ------
                 //deferred.resolve(insertedUser);
-                //INSERT INTO sfconnect.account ( sfid, name, isdeleted, phone) VALUES ( '0010Y000002dAWXQA3'::character varying, 'Mo Zo'::character varying, false::boolean, '320'::character varying);
-                db.query('INSERT INTO sfconnect.contact (sfid, name, isdeleted, phone) VALUES ($1, $2, $3, $4) RETURNING "0010Y000002dAWXQA3", firstName + ' ' + lastName, false, "320"',
-                    [user.email, password, user.firstName, user.lastName, 'Loyalty App', externalUserId, config.contactsAccountId], true)
+
+                db.query('INSERT INTO sfconnect.account (name                                 ) VALUES ($1) ',
+                                                        [user.firstName + ' ' + user.lastName ], true)
                     .then(function (insertedUser) {
                         deferred.resolve(insertedUser);
                     })
