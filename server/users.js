@@ -43,10 +43,8 @@ function updateProfile(req, res, next) {
     db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7, subscribe__c=$8 WHERE id=$9',
             [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.protein, user.frequency, user.type, user.subscribe, userId])
         .then(function () {
-
-          console.log('>>>> ' + userId);
           //---------- Mo --------
-          db.query('update sfconnect.contact SET name=$1, phone=$2, protein__c=$3, frequency__c=$4, type__c=$5, subscribe__c=$6 WHERE id=$7',
+          db.query('update sfconnect.account SET name=$1, phone=$2, protein__c=$3, frequency__c=$4, type__c=$5, subscribe__c=$6 WHERE id=$7',
                   [user.firstname + ' ' + user.lastname, user.mobilephone, user.protein, user.frequency, user.type, user.subscribe, userId])
               .then(function () {
                   res.send(user);
