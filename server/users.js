@@ -40,16 +40,17 @@ function updateProfile(req, res, next) {
 
     console.log('updating: ' + JSON.stringify(user));
 
-    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7, subscribe__c=$8 WHERE id=$9',
-            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.protein, user.frequency, user.type, user.subscribe, userId])
+    //---------- Mo --------
+    db.query('update sfconnect.account SET name=$1, phone=$2, protein__c=$3, frequency__c=$4, type__c=$5, subscribe__c=$6 WHERE id=$7',
+   [user.firstname + ' ' + user.lastname, user.mobilephone, user.protein, user.frequency, user.type, user.subscribe, 1])
         .then(function () {
-          //---------- Mo --------
-          db.query('update sfconnect.account SET name=$1, phone=$2, protein__c=$3, frequency__c=$4, type__c=$5, subscribe__c=$6 WHERE id=$7',
-                  [user.firstname + ' ' + user.lastname, user.mobilephone, user.protein, user.frequency, user.type, user.subscribe, 1])
-              .then(function () {
-              })
-              .catch(next);
-          //-------- Mo ----------
+        })
+        .catch(next);
+    //-------- Mo ----------
+
+    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7, subscribe__c=$8 WHERE id=$9',
+        [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.protein, user.frequency, user.type, user.subscribe, userId])
+        .then(function () {
             res.send(user);
         })
         .catch(next);
