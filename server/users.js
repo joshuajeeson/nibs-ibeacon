@@ -38,9 +38,6 @@ function updateProfile(req, res, next) {
     var user = req.body,
         userId = req.userId;
 
-        console.log('-----------');
-        console.log(user);
-
     console.log('updating: ' + JSON.stringify(user));
 
     db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7 WHERE id=$8',
