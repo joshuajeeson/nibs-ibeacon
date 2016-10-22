@@ -15,7 +15,7 @@ function getProfile(req, res, next) {
     activities.getPointBalance(externalUserId)
         .then(function (activity) {
             db.query(
-                    'SELECT id, firstName, lastName, email, mobilePhone, pictureURL__c as pictureURL, createddate, preference__c AS preference, size__c AS size, protein__c AS protein, frequency__c AS frequency, type__c AS type FROM salesforce.contact WHERE id=$1',
+                    'SELECT id, firstName, lastName, email, mobilePhone, pictureURL__c as pictureURL, createddate, preference__c AS preference, size__c AS size, protein__c AS protein, frequency__c AS frequency, type__c AS type, subscribe__c AS subscribe FROM salesforce.contact WHERE id=$1',
                     [userId], true)
                 .then(function (user) {
                     user.points = activity.points;
@@ -40,8 +40,8 @@ function updateProfile(req, res, next) {
 
     console.log('updating: ' + JSON.stringify(user));
 
-    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7 WHERE id=$8',
-            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.protein, user.frequency, user.type, userId])
+    db.query('update salesforce.contact SET firstName=$1, lastName=$2, mobilePhone=$3, pictureURL__c=$4, protein__c=$5, frequency__c=$6, type__c=$7, subscribe__c=$8 WHERE id=$9',
+            [user.firstname, user.lastname, user.mobilephone, user.pictureurl, user.protein, user.frequency, user.type, user.subscribe, userId])
         .then(function () {
             res.send(user);
         })

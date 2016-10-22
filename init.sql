@@ -31,7 +31,8 @@ CREATE TABLE IF NOT EXISTS salesforce.contact (
     createddate     timestamp,
     protein__c      TEXT,
     frequency__c    TEXT,
-    type__c         TEXT
+    type__c         TEXT,
+    subscribe__c    TEXT
   );
 
 CREATE TABLE IF NOT EXISTS salesforce.interaction__c (
