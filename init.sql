@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS salesforce.store__c (
   );
 
 INSERT INTO salesforce.campaign (id, name, description, image__c, type, status) VALUES
-    (1, '£20 Off Power Gym membership', 'Get £20.00 off of the Power Gym membership when you take up.', 'https://www.dropbox.com/s/11qyszcww8cbu6i/images.png?dl=0', 'Offer', 'In Progress'),
+    (1, '£20 Off Power Gym membership', 'Get £20.00 off of the Power Gym membership when you take up.', 'https://s3-eu-west-1.amazonaws.com/joshdaniel/images.png', 'Offer', 'In Progress'),
     (2, '10% of Ski-Trip', 'Twice as much Fun! Now enjoy a ski-trip at 10% off on the full price at Gadventures', 'http://s3-us-west-1.amazonaws.com/sfdc-demo/nibs/truffles.jpg', 'Offer', 'In Progress'),
     (3, '10% off EcoChocolate: Fair Trade and Organic Chocolates', '0% off chocolate that makes you feel as good as they tastes! Fair Trade and Organic chocolates assortment...', 'https://s3-us-west-1.amazonaws.com/sfdc-demo/nibs/ritual2.jpg', 'Offer', 'In Progress'),
     (4, 'Buy 2 Get 1 Free: Dandelion Chocolate for Connoisseurs', 'Purists, Foodies and Afficionados: Buy 2 Bars Get 1 Free', 'https://s3-us-west-1.amazonaws.com/sfdc-demo/Purists+Campaign+.png', 'Offer', 'In Progress'),
