@@ -251,29 +251,29 @@ a {
 }
 
 .bar-status {
-    border-color: #4C297D;
-    background-color: #4C297D !important;
+    border-color: #CD7F32;
+    background-color: #CD7F32 !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status1 {
-    border-color: #4C297D;
-    background-color: #4C297D !important;
+    border-color: #CD7F32;
+    background-color: #CD7F32 !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status2 {
-    border-color: #741D7A;
-    background-color: #741D7A !important;
+    border-color: #FFD700;
+    background-color: #FFD700 !important;
     background-image: none;
     color: #fff;
 }
 
 .bar-status3 {
-    border-color: #95003C !important;
-    background-color: #95003C;
+    border-color: #B76E79 !important;
+    background-color: #B76E79;
     background-image: none;
     color: #fff;
 }
@@ -290,15 +290,15 @@ a {
 .button-status1,
 .button-status1:hover,
 .button-status1:active {
-    background-color: #4C297D;
+    background-color: #CD7F32;
     color: #fff;
 }
 
 .button-status2,
 .button-status2:hover,
 .button-status2:active {
-    border-color: #741D7A;
-    background-color: #741D7A;
+    border-color: #FFD700;
+    background-color: #FFD700;
     background-image: none;
     color: #fff;
 }
@@ -306,8 +306,8 @@ a {
 .button-status3,
 .button-status3:hover,
 .button-status3:active {
-    border-color: #95003C;
-    background-color: #95003C;
+    border-color: #B76E79;
+    background-color: #B76E79;
     background-image: none;
     color: #fff;
 }
@@ -355,19 +355,19 @@ a {
 }
 
 .status-bar>div:nth-of-type(1) {
-    border-top: solid 50px #4C297D;
-    color: #4C297D !important;
+    border-top: solid 50px #CD7F32;
+    color: #CD7F32 !important;
 }
 
 .status-bar>div:nth-of-type(2) {
-    border-top: solid 50px #741D7A;
-    color: #741D7A !important;
+    border-top: solid 50px #FFD700;
+    color: #FFD700 !important;
     /*text-align: center;*/
 }
 
 .status-bar>div:nth-of-type(3) {
-    border-top: solid 50px #95003C;
-    color: #95003C !important;
+    border-top: solid 50px #B76E79;
+    color: #B76E79 !important;
     /*text-align: right;*/
 }
 
@@ -387,7 +387,7 @@ a {
 }
 
 .status1-bg {
-    background: #4C297D;
+    background: #CD7F32;
 }
 
 .status2-bg {
@@ -399,7 +399,7 @@ a {
 }
 
 .status1 {
-    color: #4C297D;
+    color: #CD7F32;
 }
 
 .status2 {
